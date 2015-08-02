@@ -23,7 +23,8 @@ angular.module('app').controller('MainCtrl', function(Search) {
 
     Search.getVideos(searchConfig)
       .then(function(results) {
-        // TODO: update controller data
+        console.log(results);
+        ctrl.results = results;
       });
   };
 });

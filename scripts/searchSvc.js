@@ -2,6 +2,17 @@ angular.module('app').service('Search', function(Google) {
   'use strict';
   var svc = this;
 
+  function deserializeSearchResult(item) {
+    return {
+      title: item.snippet.title,
+      description: item.snippet.description,
+      publishedAt: item.snippet.publishedAt,
+      channel: item.snippet.channelTitle,
+      thumbnailUrl: item.snippet.thumbnails.default.url,
+      id: item.id.videoId
+    };
+  }
+
   svc.getVideos = function(config) {
     var params = {
       part: 'snippet',
@@ -14,8 +25,7 @@ angular.module('app').service('Search', function(Google) {
         return api.search.list(params);
       })
       .then(function(response) {
-        console.log(response.result.items);
-        return response.result.items;
+        return response.result.items.map(deserializeSearchResult);
       });
   };
 
