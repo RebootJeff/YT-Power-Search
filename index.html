@@ -7,8 +7,9 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="node_modules/angular-material/angular-material.css">
+    <link rel="stylesheet" href="styles/main.css">
   </head>
-  <body ng-controller="MainCtrl as search">
+  <body ng-controller="MainCtrl as search" ng-cloak>
     <!--[if lt IE 10]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -19,8 +20,10 @@
           <input ng-model="search.keywords" required>
         </md-input-container>
 
-      <md-button class="md-raised md-primary" ng-click="search.submit()" ng-disabled="searchForm.$invalid">Search</md-button>
+      <md-button class="md-raised md-primary" ng-click="search.submit()" ng-disabled="searchForm.$invalid">Use the Power</md-button>
     </form>
+
+
 
 
     <!-- 3rd party dependencies -->
@@ -30,9 +33,9 @@
     <script src="node_modules/angular-material/angular-material.js"></script>
 
     <!-- App scripts -->
-    <script src="js/app.js"></script>
-    <script src="js/searchSvc.js"></script>
-    <script src="js/googleSvc.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/searchSvc.js"></script>
+    <script src="scripts/googleSvc.js"></script>
 
     <!-- Google API Client comes last for weird reasons: http://stackoverflow.com/questions/19399419/angular-js-and-google-api-client-js-gapi -->
     <script src="https://apis.google.com/js/client.js?onload=init"></script>
