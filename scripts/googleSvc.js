@@ -1,4 +1,5 @@
-angular.module('app').service('Google', function($q) {
+angular.module('app')
+.service('Google', function($q) {
   'use strict';
   var svc = this;
 
@@ -7,15 +8,18 @@ angular.module('app').service('Google', function($q) {
 
   var initDone = $q.defer();
 
-  svc.getYouTubeApi = function() {
-    return initDone.promise;
+  svc.searchYouTubeVideos = function(params) {
+    return initDone.promise.then(function(gapiClient) {
+      return gapiClient.youtube.search.list(params);
+    });
   };
 
-  svc.initYouTubeApi = function() {
+  svc.initGoogleApi = function() {
     gapi.client.setApiKey(API_KEY);
     gapi.client.load('youtube', 'v3')
       .then(function() {
-        initDone.resolve(gapi.client.youtube);
+        console.log(gapi);
+        initDone.resolve(gapi.client);
       });
   };
 
