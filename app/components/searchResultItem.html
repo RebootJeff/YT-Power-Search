@@ -1,0 +1,12 @@
+<md-list-item class="md-3-line">
+  <a ng-href="{{'https://www.youtube.com/watch?v=' + item.videoId}}">
+    <img ng-src="{{item.thumbnailUrl}}" alt="{{item.title}}">
+  </a>
+  <div class="md-list-item-text">
+    <a ng-href="{{'https://www.youtube.com/watch?v=' + item.videoId}}">
+      <h3>{{item.title}}</h3>
+    </a>
+    <p><a ng-href="{{'https://www.youtube.com/channel/' + item.channelId}}">{{item.channelTitle}}</a></p>
+    <p>{{item.publishedAt}}</p>
+  </div>
+</md-list-item>
