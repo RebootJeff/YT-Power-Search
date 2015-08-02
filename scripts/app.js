@@ -6,32 +6,17 @@ function init() {
 
 angular.module('app', [
   'ngMaterial'
-]);
+])
 
-angular.module('app').run(function($window, Google) {
-  $window.initGapi = Google.initYouTubeApi;
-});
+.run(function($window, Google) {
+  $window.initGapi = Google.initGoogleApi;
+})
 
-angular.module('app').controller('MainCtrl', function(Search) {
-  'use strict';
-  var ctrl = this;
-  ctrl.loading = false;
+.config(function($mdThemingProvider) {
+  $mdThemingProvider.theme('default')
+    .primaryPalette('red')
+    .accentPalette('teal')
+    .warnPalette('amber');
+})
 
-  ctrl.submit = function() {
-    var searchConfig = {
-      keywords: ctrl.keywords
-    };
-
-    ctrl.results = [];
-    ctrl.loading = true;
-
-    Search.getVideos(searchConfig)
-      .then(function(results) {
-        console.log(results);
-        ctrl.results = results;
-      })
-      .finally(function() {
-        ctrl.loading = false;
-      });
-  };
-});
+;

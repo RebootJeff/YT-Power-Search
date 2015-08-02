@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="node_modules/angular-material/angular-material.css">
     <link rel="stylesheet" href="styles/main.css">
   </head>
-  <body ng-controller="MainCtrl as search" ng-cloak>
+  <body ng-controller="SearchCtrl as search" ng-cloak>
     <!--[if lt IE 10]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -20,7 +20,7 @@
           <input ng-model="search.keywords" required>
         </md-input-container>
 
-      <md-button class="md-raised md-primary" ng-click="search.submit()" ng-disabled="searchForm.$invalid">Use the Power</md-button>
+      <md-button class="md-raised md-primary" ng-click="search.submit()" ng-disabled="searchForm.$invalid">Use the Power!</md-button>
     </form>
 
     <md-content class="loading-message" ng-show="search.loading">
@@ -31,13 +31,15 @@
     <md-content class="search-results">
       <md-list>
         <md-list-item class="md-3-line" ng-repeat="item in search.results">
-          <a ng-href="{{'https://www.youtube.com/watch?v=' + item.id}}">
+          <a ng-href="{{'https://www.youtube.com/watch?v=' + item.videoId}}">
             <img ng-src="{{item.thumbnailUrl}}" alt="{{item.title}}">
           </a>
 
           <div class="md-list-item-text">
-            <h3>{{item.title}}</h3>
-            <p>{{item.channel}}</p>
+            <a ng-href="{{'https://www.youtube.com/watch?v=' + item.videoId}}">
+              <h3>{{item.title}}</h3>
+            </a>
+            <p><a ng-href="{{'https://www.youtube.com/channel/' + item.channelId}}">{{item.channelTitle}}</a></p>
             <p>{{item.publishedAt}}</p>
           </div>
         </md-list-item>
@@ -54,6 +56,7 @@
 
     <!-- App scripts -->
     <script src="scripts/app.js"></script>
+    <script src="scripts/searchCtrl.js"></script>
     <script src="scripts/searchSvc.js"></script>
     <script src="scripts/googleSvc.js"></script>
 

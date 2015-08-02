@@ -1,4 +1,5 @@
-angular.module('app').service('Search', function(Google) {
+angular.module('app')
+.service('Search', function(Google) {
   'use strict';
   var svc = this;
 
@@ -6,10 +7,11 @@ angular.module('app').service('Search', function(Google) {
     return {
       title: item.snippet.title,
       description: item.snippet.description,
-      publishedAt: item.snippet.publishedAt,
-      channel: item.snippet.channelTitle,
+      publishedAt: (new Date(item.snippet.publishedAt)).toString(),
+      channelId: item.snippet.channelId,
+      channelTitle: item.snippet.channelTitle,
       thumbnailUrl: item.snippet.thumbnails.default.url,
-      id: item.id.videoId
+      videoId: item.id.videoId
     };
   }
 
@@ -17,13 +19,11 @@ angular.module('app').service('Search', function(Google) {
     var params = {
       part: 'snippet',
       q: config.keywords,
+      type: 'video',
       maxResults: 50
     };
 
-    return Google.getYouTubeApi()
-      .then(function(api) {
-        return api.search.list(params);
-      })
+    return Google.searchYouTubeVideos(params)
       .then(function(response) {
         return response.result.items.map(deserializeSearchResult);
       });
