@@ -14,25 +14,38 @@
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <form name="searchForm">
-      <md-input-container flex>
+    <div class="app-container md-padding" flex layout="row" layout-align="center start" layout-wrap>
+
+      <form flex-sm="100" flex-md="100" flex-gt-md="80"
+        name="searchForm" ng-submit="search.submit()" class="md-whiteframe-z1 md-padding">
+        <md-subheader>Configure your search</md-subheader>
+        <md-input-container>
           <label>Keywords</label>
           <input ng-model="search.keywords" required>
         </md-input-container>
 
-      <md-button class="md-raised md-primary" ng-click="search.submit()" ng-disabled="searchForm.$invalid">Use the Power!</md-button>
-    </form>
+        <section layout="row" layout-align="space-around center">
+          <md-button class="md-raised md-primary" type="submit" ng-disabled="searchForm.$invalid">Use the Power!</md-button>
+        </section>
 
-    <md-content class="loading-message" ng-show="search.loading">
-      <h3>Loading... Please wait...</h3>
-      <img src="images/calming_cat.gif">
-    </md-content>
+        <md-subheader>Configure the results</md-subheader>
+      </form>
 
-    <md-content class="search-results">
-      <md-list>
-        <search-result-item ng-repeat="item in search.results"></search-result-item>
-      </md-list>
-    </md-content>
+      <section flex-sm="100" flex-gt-md="80" layout="row" layout-align="center start"
+        class="md-padding">
+        <md-content class="loading-message" ng-show="search.loading">
+          <h3>Loading... Please wait...</h3>
+          <img src="images/calming_cat.gif">
+        </md-content>
+
+        <md-content class="search-results">
+          <md-list>
+            <search-result-item ng-repeat="item in search.results"></search-result-item>
+          </md-list>
+        </md-content>
+      </section>
+
+    </div>
 
 
     <!-- 3rd party dependencies -->
