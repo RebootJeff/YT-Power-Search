@@ -30,19 +30,7 @@
 
     <md-content class="search-results">
       <md-list>
-        <md-list-item class="md-3-line" ng-repeat="item in search.results">
-          <a ng-href="{{'https://www.youtube.com/watch?v=' + item.videoId}}">
-            <img ng-src="{{item.thumbnailUrl}}" alt="{{item.title}}">
-          </a>
-
-          <div class="md-list-item-text">
-            <a ng-href="{{'https://www.youtube.com/watch?v=' + item.videoId}}">
-              <h3>{{item.title}}</h3>
-            </a>
-            <p><a ng-href="{{'https://www.youtube.com/channel/' + item.channelId}}">{{item.channelTitle}}</a></p>
-            <p>{{item.publishedAt}}</p>
-          </div>
-        </md-list-item>
+        <search-result-item ng-repeat="item in search.results"></search-result-item>
       </md-list>
     </md-content>
 
@@ -55,10 +43,11 @@
     <script src="node_modules/ramda/dist/ramda.js"></script>
 
     <!-- App scripts -->
-    <script src="scripts/app.js"></script>
-    <script src="scripts/searchCtrl.js"></script>
-    <script src="scripts/searchSvc.js"></script>
-    <script src="scripts/googleSvc.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/searchCtrl.js"></script>
+    <script src="app/searchSvc.js"></script>
+    <script src="app/components/searchResultItem.js"></script>
+    <script src="app/googleSvc.js"></script>
 
     <!-- Google API Client comes last for weird reasons: http://stackoverflow.com/questions/19399419/angular-js-and-google-api-client-js-gapi -->
     <script src="https://apis.google.com/js/client.js?onload=init"></script>
