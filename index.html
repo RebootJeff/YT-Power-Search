@@ -23,13 +23,18 @@
       <md-button class="md-raised md-primary" ng-click="search.submit()" ng-disabled="searchForm.$invalid">Use the Power</md-button>
     </form>
 
+    <md-content class="loading-message" ng-show="search.loading">
+      <h3>Loading... Please wait...</h3>
+      <img src="images/calming_cat.gif">
+    </md-content>
+
     <md-content class="search-results">
       <md-list>
         <md-list-item class="md-3-line" ng-repeat="item in search.results">
           <a ng-href="{{'https://www.youtube.com/watch?v=' + item.id}}">
             <img ng-src="{{item.thumbnailUrl}}" alt="{{item.title}}">
           </a>
-          
+
           <div class="md-list-item-text">
             <h3>{{item.title}}</h3>
             <p>{{item.channel}}</p>
