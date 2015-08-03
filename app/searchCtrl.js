@@ -14,7 +14,6 @@ angular.module('app')
 
     Search.getVideos(searchConfig)
       .then(function(results) {
-        console.log(results);
         ctrl.results = results;
       })
       .finally(function() {

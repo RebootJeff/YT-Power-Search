@@ -18,7 +18,6 @@ angular.module('app')
     gapi.client.setApiKey(API_KEY);
     gapi.client.load('youtube', 'v3')
       .then(function() {
-        console.log(gapi);
         initDone.resolve(gapi.client);
       });
   };

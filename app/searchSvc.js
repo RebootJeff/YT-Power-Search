@@ -25,6 +25,7 @@ angular.module('app')
 
     return Google.searchYouTubeVideos(params)
       .then(function(response) {
+        console.log('response:', response);
         return response.result.items.map(deserializeSearchResult);
       });
   };
