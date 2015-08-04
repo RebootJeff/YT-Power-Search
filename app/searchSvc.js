@@ -10,8 +10,10 @@ angular.module('app')
       publishedAt: (new Date(item.snippet.publishedAt)).toString(),
       channelId: item.snippet.channelId,
       channelTitle: item.snippet.channelTitle,
+      channelUrl: 'https://www.youtube.com/channel/' + item.snippet.channelId,
       thumbnailUrl: item.snippet.thumbnails.default.url,
-      videoId: item.id.videoId
+      videoId: item.id.videoId,
+      videoUrl: 'https://www.youtube.com/watch?v=' + item.id.videoId
     };
   }
 
