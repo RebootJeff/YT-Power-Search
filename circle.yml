@@ -9,9 +9,9 @@ machine:
 
 ## Customize deployment commands
 deployment:
-  staging:
-    branch: test-deploy
+  production:
+    branch: master
     commands:
       - npm install -g firebase-tools
-      - firebase login -s --email $FIREBASE_EMAIL --password $FIREBASE_PASSWORD
+      - firebase login -s --email $FIREBASE_USERNAME --password $FIREBASE_PASSWORD
       - firebase deploy -s

@@ -1,7 +1,11 @@
-
 [![Circle CI](https://circleci.com/gh/RebootJeff/yt-power-search.svg?style=svg)](https://circleci.com/gh/RebootJeff/yt-power-search)
 
 # YT-Power-Search
+
+*Work in progress*
+
+*[Prototype is deployed](https://youtubepowersearch.firebaseapp.com/), but not useful yet.*
+
 A more advanced search tool for finding YouTube content. Feel the power! ...once I've actually completed some features.
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
