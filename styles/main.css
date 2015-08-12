@@ -2,12 +2,24 @@ body[ng-cloak] {
   display: none;
 }
 
+a {
+  text-decoration: none;
+}
+
 .search-result-cell {
   margin: 1em 0.5em;
 }
 
 aside.search-result-cell {
   margin-top: 2em;
+}
+
+.search-result-cell h3 {
+  color: black;
+}
+
+.search-result-cell a {
+  color: rgba(0,0,0,0.54);
 }
 
 .detail-name {

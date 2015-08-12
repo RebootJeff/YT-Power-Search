@@ -32,6 +32,7 @@ A more advanced search tool for finding YouTube content. Feel the power! ...once
   - Angular-Material
 - Google API JavaScript Client
 - CircleCI
+- Firebase Hosting
 
 ### Challenges
 
