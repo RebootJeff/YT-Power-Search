@@ -1,5 +1,5 @@
 angular.module('app')
-.service('Search', function(Google) {
+.service('Search', function(Google, $q) {
   'use strict';
   var svc = this;
 
@@ -17,18 +17,43 @@ angular.module('app')
     };
   }
 
-  svc.getVideos = function(config) {
-    var params = {
-      part: 'snippet',
-      q: config.keywords,
-      type: 'video',
-      maxResults: 50
-    };
+  function getDetailsForSearchResults(searchResults) {
+    var videoDetailRequests = searchResults.map(function(searchResult) {
+      return Google.getYouTubeVideo(searchResult.videoId);
+    });
+    return $q.all(videoDetailRequests);
+  }
 
-    return Google.searchYouTubeVideos(params)
+  function mungeVideoDetailsWithSearchResults(searchResults, videoDetails) {
+    var videoDetail;
+    var munged;
+
+    var results = searchResults.map(function(searchResult, index) {
+      videoDetail = videoDetails[index].contentDetails;
+      munged = angular.extend(searchResult, videoDetail);
+      munged.hd = (videoDetail.definition === 'hd');
+      munged.threeD = (videoDetail.definition === '3d');
+      return munged;
+    });
+
+    return results;
+  }
+
+  svc.getVideos = function(options) {
+    var searchResults;
+
+    return Google.searchYouTubeVideos(options)
       .then(function(response) {
-        console.log('response:', response);
-        return response.result.items.map(deserializeSearchResult);
+
+        searchResults = response.result.items.map(deserializeSearchResult);
+        return getDetailsForSearchResults(searchResults);
+      })
+      .then(function(responses) {
+        var videoDetails = responses.map(function(responses) {
+          return responses.result.items[0];
+        });
+
+        return mungeVideoDetailsWithSearchResults(searchResults, videoDetails);
       });
   };
 

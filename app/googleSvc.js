@@ -8,11 +8,9 @@ angular.module('app')
 
   var initDone = $q.defer();
 
-  svc.searchYouTubeVideos = function(params) {
-    return initDone.promise.then(function(gapiClient) {
-      return gapiClient.youtube.search.list(params);
-    });
-  };
+  function getGapiClient() {
+    return initDone.promise;
+  }
 
   svc.initGoogleApi = function() {
     gapi.client.setApiKey(API_KEY);
@@ -21,5 +19,36 @@ angular.module('app')
         initDone.resolve(gapi.client);
       });
   };
+
+  svc.searchYouTubeVideos = function(options) {
+    var searchParams = {
+      part: 'snippet',
+      q: options.keywords,
+      order: 'relevance',
+      type: 'video',
+      maxResults: 50
+    };
+
+    return getGapiClient().then(function(gapiClient) {
+      return gapiClient.youtube.search.list(searchParams);
+    });
+  };
+
+  svc.getYouTubeVideo = function(id) {
+    var detailParams = {
+      part: 'contentDetails',
+      id: id,
+      maxResults: 50
+    };
+
+    return getGapiClient().then(function(gapiClient) {
+      return gapiClient.youtube.videos.list(detailParams);
+    });
+  };
+
+  svc.getYouTubeVideos = function(ids, params) {
+    // TODO: Use gapiClient's batch request feature
+  };
+
 
 });

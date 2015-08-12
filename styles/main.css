@@ -1,7 +1,30 @@
-[ng-cloak] {
+body[ng-cloak] {
   display: none;
 }
 
 .search-result-cell {
   margin: 1em 0.5em;
 }
+
+aside.search-result-cell {
+  margin-top: 2em;
+}
+
+.detail-name {
+  font-weight: bold;
+}
+
+.detail-true {
+  padding: 1px 3px;
+  border-radius: 2px;
+  background-color: rgba(0,0,0,0.54);
+  color: white;
+  font-weight: 500;
+}
+
+.detail-false {
+  font-weight: 400;
+}
+
+/*.detail-true {
+}*/
