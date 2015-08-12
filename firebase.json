@@ -1,0 +1,9 @@
+{
+  "firebase": "youtubepowersearch",
+  "public": ".",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    ".DS_STORE"
+  ]
+}
