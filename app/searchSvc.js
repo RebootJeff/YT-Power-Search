@@ -9,7 +9,7 @@ angular.module('app')
       title: item.snippet.title,
       description: item.snippet.description,
       publishedAt: new Date(item.snippet.publishedAt),
-      // humanizedPublishedAt: Moment(item.snippet.publishedAt).humanize(),
+      humanizedPublishedAt: Moment(item.snippet.publishedAt).format('YYYY/M/D h:mm a'),
       channelId: item.snippet.channelId,
       channelTitle: item.snippet.channelTitle,
       channelUrl: 'https://www.youtube.com/channel/' + item.snippet.channelId,
@@ -34,7 +34,7 @@ angular.module('app')
       videoDetail = videoDetails[index].contentDetails;
       munged = angular.extend(searchResult, videoDetail);
       munged.duration = Moment.duration(videoDetail.duration);
-      munged.humanizedDuration = munged.duration.format('h:mm:ss');
+      munged.humanizedDuration = munged.duration.format('h[h] mm[m] ss[s]');
       munged.hd = (videoDetail.definition === 'hd');
       munged.threeD = (videoDetail.definition === '3d');
       return munged;
