@@ -21,15 +21,16 @@ angular.module('app')
   };
 
   svc.searchYouTubeVideos = function(options) {
-    var searchParams = {
+    var defaults = {
       part: 'snippet',
-      q: options.keywords,
+      q: 'batman',
       order: 'relevance',
       type: 'video',
-      regionCode: 'us', // TODO: Don't hardcode region and language
+      regionCode: 'us',
       relevanceLanguage: 'en',
       maxResults: 50
     };
+    var searchParams = angular.extend(defaults, options);
 
     return getGapiClient().then(function(gapiClient) {
       return gapiClient.youtube.search.list(searchParams);
