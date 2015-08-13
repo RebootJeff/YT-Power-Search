@@ -26,6 +26,8 @@ angular.module('app')
       q: options.keywords,
       order: 'relevance',
       type: 'video',
+      regionCode: 'us', // TODO: Don't hardcode region and language
+      relevanceLanguage: 'en',
       maxResults: 50
     };
 
