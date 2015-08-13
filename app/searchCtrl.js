@@ -3,6 +3,13 @@ angular.module('app')
   'use strict';
   var ctrl = this;
   ctrl.loading = false;
+  ctrl.resultsOrderReverse = false;
+  ctrl.resultsOrderProp = 'relevanceRank';
+
+  // TODO: Add proper filtering abilities
+  ctrl.resultsFilterPredicate = function(searchResult) {
+    return true;
+  };
 
   ctrl.submit = function() {
     var searchConfig = {

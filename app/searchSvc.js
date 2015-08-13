@@ -1,13 +1,15 @@
 angular.module('app')
-.service('Search', function(Google, $q) {
+.service('Search', function(Google, Moment, $q) {
   'use strict';
   var svc = this;
 
-  function deserializeSearchResult(item) {
+  function deserializeSearchResult(item, index) {
     return {
+      relevanceRank: index + 1,
       title: item.snippet.title,
       description: item.snippet.description,
-      publishedAt: (new Date(item.snippet.publishedAt)).toString(),
+      publishedAt: new Date(item.snippet.publishedAt),
+      // humanizedPublishedAt: Moment(item.snippet.publishedAt).humanize(),
       channelId: item.snippet.channelId,
       channelTitle: item.snippet.channelTitle,
       channelUrl: 'https://www.youtube.com/channel/' + item.snippet.channelId,
@@ -31,6 +33,8 @@ angular.module('app')
     var results = searchResults.map(function(searchResult, index) {
       videoDetail = videoDetails[index].contentDetails;
       munged = angular.extend(searchResult, videoDetail);
+      munged.duration = Moment.duration(videoDetail.duration);
+      munged.humanizedDuration = munged.duration.format('h:mm:ss');
       munged.hd = (videoDetail.definition === 'hd');
       munged.threeD = (videoDetail.definition === '3d');
       return munged;

@@ -19,7 +19,7 @@
     <p><a ng-href="{{::item.channelUrl}}">{{::item.channelTitle}}</a></p>
     <p>
       {{::item.publishedAt}}
-      <br><span class="detail-name">Duration:</span> {{::item.duration}}
+      <br><span class="detail-name">Duration:</span> {{::item.humanizedDuration}}
       <br><span ng-class="::'detail-' + item.hd" class="video-detail">HD</span>
       <span ng-class="::'detail-' + item.caption" class="video-detail detail-name">CC</span>
       <span ng-class="::'detail-' + item.threeD" class="video-detail detail-name">3D</span>
