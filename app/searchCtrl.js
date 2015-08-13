@@ -2,17 +2,42 @@ angular.module('app')
 .controller('SearchCtrl', function(Search, Globalization) {
   'use strict';
   var ctrl = this;
+
   ctrl.loading = false;
+
   ctrl.resultsOrderReverse = false;
   ctrl.resultsOrderProp = 'relevanceRank';
 
-  // TODO: Add proper filtering abilities
+  ctrl.regions = Globalization.regions;
+  ctrl.languages = Globalization.languages;
+
+  ctrl.showPrepControls = false;
+  ctrl.showFunnelControls = false;
+  ctrl.prepControlsButtonMessage = 'Prep the Power';
+  ctrl.funnelControlsButtonMessage = 'Funnel the Power';
+
+  ctrl.togglePrepControls = function() {
+    ctrl.showPrepControls = !ctrl.showPrepControls;
+    if(ctrl.showPrepControls) {
+      ctrl.prepControlsButtonMessage = 'Hide Prep Options';
+    } else {
+      ctrl.prepControlsButtonMessage = 'Prep the Power';
+    }
+  };
+
+  ctrl.toggleFunnelControls = function() {
+    ctrl.showFunnelControls = !ctrl.showFunnelControls;
+    if(ctrl.showFunnelControls) {
+      ctrl.funnelControlsButtonMessage = 'Hide Funnel Options';
+    } else {
+      ctrl.funnelControlsButtonMessage = 'Funnel the Power';
+    }
+  };
+
+  // TODO: Add real filtering abilities
   ctrl.resultsFilterPredicate = function(searchResult) {
     return true;
   };
-
-  ctrl.regions = Globalization.regions;
-  ctrl.languages = Globalization.languages;
 
   function createFilterFor(query, key) {
     var lowercaseQuery = angular.lowercase(query);
