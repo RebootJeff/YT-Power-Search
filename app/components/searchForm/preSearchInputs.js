@@ -5,7 +5,7 @@ angular.module('app')
     scope: {
       ngModel: '='
     },
-    templateUrl: 'app/components/preSearchInputs.html',
+    templateUrl: 'app/components/searchForm/preSearchInputs.html',
     controller: 'PreSearchCtrl',
     controllerAs: 'preSearch'
   };

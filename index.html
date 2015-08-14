@@ -28,8 +28,8 @@
         <md-content class="search-results">
           <md-list>
             <yps-search-result-item ng-repeat="item in search.results
-                                          | orderBy : search.resultsOrderProp : search.resultsOrderReverse
-                                          | filter : search.resultsFilterPredicate">
+              | orderBy : search.resultsOrderProp : search.resultsOrderReverse
+              | filter : search.resultsFilterPredicate">
             </yps-search-result-item>
           </md-list>
         </md-content>
@@ -51,10 +51,11 @@
     <script src="app/app.js"></script>
     <script src="app/searchCtrl.js"></script>
     <script src="app/searchSvc.js"></script>
-    <script src="app/components/searchForm.js"></script>
-    <script src="app/components/preSearchInputs.js"></script>
-    <script src="app/components/postSearchInputs.js"></script>
+    <script src="app/components/searchForm/searchForm.js"></script>
+    <script src="app/components/searchForm/preSearchInputs.js"></script>
+    <script src="app/components/searchForm/postSearchInputs.js"></script>
     <script src="app/components/searchResultItem.js"></script>
+    <script src="app/components/warnWipToast.js"></script>
     <script src="app/googleSvc.js"></script>
     <script src="app/globalizationSvc.js"></script>
     <script src="app/momentSvc.js"></script>
