@@ -7,14 +7,14 @@ angular.module('app')
     $mdToast.simple()
     .content('Please keep in mind that this app is in pre-pre-beta :)')
     .action('ok')
-    .position('bottom right')
+    .position('bottom left')
     .hideDelay(0)
   ).then(function() {
     $mdToast.show({
       templateUrl: 'app/components/warnWipToast.html',
       controller: 'WarnWipToastCtrl',
       controllerAs: 'warnWipToast',
-      position: 'bottom right',
+      position: 'bottom left',
       hideDelay: 0
     });
   });

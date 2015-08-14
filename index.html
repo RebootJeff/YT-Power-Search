@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>YouTube Power Search</title>
-    <meta name="description" content="">
+    <meta name="description" content="Finally you can sort YouTube videos by duration!">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="node_modules/angular-material/angular-material.css">
     <link rel="stylesheet" href="styles/main.css">
@@ -15,7 +15,9 @@
     <![endif]-->
 
     <div class="app-container md-padding" flex layout="row" layout-align="center start" layout-wrap>
-      <h1 flex="100" class="app-title">YouTube Power Search</h1>
+      <h1 flex="100" class="app-title">
+        YouTube Power Search
+      </h1>
 
       <yps-search-form flex-sm="100" flex-md="100" flex-gt-md="80" class="md-whiteframe-z1 md-padding"></yps-search-form>
 
@@ -35,6 +37,17 @@
           </md-list>
         </md-content>
       </section>
+
+      <md-content flex="100" layout="row" layout-align="center end" layout-margin>
+        Made with&nbsp;
+        <span>
+          <img src="images/yps_logo.png" class="logo">
+          <md-tooltip>
+            FIRE! (metaphorically)
+          </md-tooltip>
+        </span>
+        &nbsp;by&nbsp;<a href="https://twitter.com/RebootJeff" class="md-primary">@RebootJeff</a>
+      </md-content>
 
     </div>
 

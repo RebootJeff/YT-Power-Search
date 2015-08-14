@@ -6,6 +6,10 @@ a {
   text-decoration: none;
 }
 
+.logo {
+  height: 2em;
+}
+
 .app-title {
   text-align: center;
   color: rgb(244,67,54);
@@ -44,5 +48,6 @@ aside.search-result-cell {
   font-weight: 400;
 }
 
-/*.detail-true {
-}*/
+a.md-primary {
+  color: rgb(244,67,54);
+}

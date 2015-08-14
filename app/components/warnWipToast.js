@@ -9,7 +9,7 @@ angular.module('app')
   warnWipToast.stayOnPage = function() {
     var hurtFeelingsToast = $mdToast.simple()
       .content('Oh...ok... (º _ º ;)')
-      .position('bottom right')
+      .position('bottom left')
       .hideDelay(1000);
     $mdToast.show(hurtFeelingsToast);
   };
