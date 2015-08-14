@@ -8,9 +8,9 @@ angular.module('app')
 
   warnWipToast.stayOnPage = function() {
     var hurtFeelingsToast = $mdToast.simple()
-      .content('Oh...ok... (º _ º\')')
-      .position('top right')
-      .hideDelay(2000);
+      .content('Oh...ok... (º _ º ;)')
+      .position('bottom right')
+      .hideDelay(1000);
     $mdToast.show(hurtFeelingsToast);
   };
 });
