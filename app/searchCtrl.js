@@ -1,7 +1,23 @@
 angular.module('app')
-.controller('SearchCtrl', function(Search) {
+.controller('SearchCtrl', function(Search, $mdToast) {
   'use strict';
   var ctrl = this;
+
+  $mdToast.show(
+    $mdToast.simple()
+    .content('Please keep in mind that this app is a work in progress :)')
+    .action('ok')
+    .position('top right')
+    .hideDelay(0)
+  ).then(function() {
+    $mdToast.show({
+      templateUrl: 'app/components/warnWipToast.html',
+      controller: 'WarnWipToastCtrl',
+      controllerAs: 'warnWipToast',
+      position: 'top right',
+      hideDelay: 0
+    });
+  });
 
   ctrl.loading = false;
 
