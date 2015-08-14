@@ -5,7 +5,7 @@ angular.module('app')
 
   $mdToast.show(
     $mdToast.simple()
-    .content('Please keep in mind that this app is a work in progress :)')
+    .content('Please keep in mind that this app is in pre-pre-beta :)')
     .action('ok')
     .position('bottom right')
     .hideDelay(0)
