@@ -52,12 +52,12 @@ angular.module('app')
   };
 
   ctrl.submit = function() {
-    ctrl.selectedRegion = ctrl.selectedRegion || { code: 'us' };
+    ctrl.selectedRegion = ctrl.selectedRegion || { alpha2: 'us' };
     ctrl.selectedLanguage = ctrl.selectedLanguage || { alpha2: 'en' };
 
     var searchConfig = {
       keywords: ctrl.keywords,
-      regionCode: ctrl.selectedRegion.code,
+      regionCode: ctrl.selectedRegion.alpha2,
       relevanceLanguage: ctrl.selectedLanguage.alpha2
     };
 

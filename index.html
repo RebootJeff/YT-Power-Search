@@ -16,70 +16,7 @@
 
     <div class="app-container md-padding" flex layout="row" layout-align="center start" layout-wrap>
 
-      <form flex-sm="100" flex-md="100" flex-gt-md="80"
-        name="searchForm" ng-submit="search.submit()" class="md-whiteframe-z1 md-padding">
-        <md-input-container>
-          <label>Search Terms</label>
-          <input ng-model="search.keywords" autofocus required>
-        </md-input-container>
-
-        <md-content ng-show="search.showPrepControls">
-          <md-subheader>Configure your search before submitting (more options coming soon)</md-subheader>
-          <md-content class="globalization" layout="row" layout-align="center" layout-margin layout-wrap>
-            <md-autocomplete flex-gt-sm="15"
-              md-items="region in search.filterAutoComplete(search.searchRegion, 'lowerCaseName', search.regions)"
-              md-item-text="region.name"
-              md-selected-item="search.selectedRegion"
-              md-search-text="search.searchRegion"
-              md-search-text-change="angular.noop"
-              md-selected-item-change="angular.noop"
-              md-min-length="1"
-              md-floating-label="Country"
-              md-autofocus="false">
-              <span md-highlight-text="search.searchRegion">{{region.name}}</span>
-            </md-autocomplete>
-            <md-autocomplete flex-gt-sm="15"
-              md-items="language in search.filterAutoComplete(search.searchLanguage, 'lowerCaseName', search.languages)"
-              md-item-text="language.name"
-              md-selected-item="search.selectedLanguage"
-              md-search-text="search.searchLanguage"
-              md-search-text-change="angular.noop"
-              md-selected-item-change="angular.noop"
-              md-min-length="1"
-              md-floating-label="Language"
-              md-autofocus="false">
-              <span md-highlight-text="search.searchLanguage">{{language.name}}</span>
-            </md-autocomplete>
-          </md-content>
-        </md-content>
-
-        <section layout="row" layout-sm="column" layout-align="space-around center">
-          <md-button class="md-primary" type="button" ng-click="search.togglePrepControls()">{{search.prepControlsButtonMessage}}</md-button>
-          <md-button class="md-raised md-primary" type="submit" ng-disabled="searchForm.$invalid">Use the Power!</md-button>
-          <md-button class="md-primary" type="button" ng-click="search.toggleFunnelControls()">{{search.funnelControlsButtonMessage}}</md-button>
-        </section>
-
-        <md-content ng-show="search.showFunnelControls">
-          <md-subheader>Configure the results after submitting (more options coming soon)</md-subheader>
-          <md-content layout="row" layout-align="start center" layout-wrap>
-            <label flex-gt-sm="10">Sort by:</label>
-            <md-radio-group layout="row" layout-align="space-around" layout-wrap ng-model="search.resultsOrderProp">
-              <md-radio-button value="relevanceRank" class="md-primary">Relevance</md-radio-button>
-              <md-radio-button value="title" class="md-primary">Title</md-radio-button>
-              <md-radio-button value="publishedAt" class="md-primary">Date</md-radio-button>
-              <md-radio-button value="duration" class="md-primary">Duration</md-radio-button>
-            </md-radio-group>
-          </md-content>
-
-          <md-content layout="row" layout-align="start center" layout-wrap>
-            <label flex-gt-sm="10">Order:</label>
-            <md-radio-group layout="row" layout-align="space-around" layout-wrap ng-model="search.resultsOrderReverse">
-              <md-radio-button ng-value="false" class="md-primary">Ascending</md-radio-button>
-              <md-radio-button ng-value="true" class="md-primary">Descending</md-radio-button>
-            </md-radio-group>
-          </md-content>
-        </md-content>
-      </form>
+      <yps-search-form flex-sm="100" flex-md="100" flex-gt-md="80" class="md-whiteframe-z1 md-padding"></yps-search-form>
 
       <section flex-sm="100" flex-gt-md="80" layout="row" layout-align="center start"
         class="md-padding">
@@ -90,10 +27,10 @@
 
         <md-content class="search-results">
           <md-list>
-            <search-result-item ng-repeat="item in search.results
+            <yps-search-result-item ng-repeat="item in search.results
                                           | orderBy : search.resultsOrderProp : search.resultsOrderReverse
                                           | filter : search.resultsFilterPredicate">
-            </search-result-item>
+            </yps-search-result-item>
           </md-list>
         </md-content>
       </section>
@@ -114,6 +51,9 @@
     <script src="app/app.js"></script>
     <script src="app/searchCtrl.js"></script>
     <script src="app/searchSvc.js"></script>
+    <script src="app/components/searchForm.js"></script>
+    <script src="app/components/preSearchInputs.js"></script>
+    <script src="app/components/postSearchInputs.js"></script>
     <script src="app/components/searchResultItem.js"></script>
     <script src="app/googleSvc.js"></script>
     <script src="app/globalizationSvc.js"></script>

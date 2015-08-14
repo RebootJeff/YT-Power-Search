@@ -1,5 +1,5 @@
 angular.module('app')
-.directive('searchResultItem', function() {
+.directive('ypsSearchResultItem', function() {
   return {
     restrict: 'E',
     templateUrl: 'app/components/searchResultItem.html'

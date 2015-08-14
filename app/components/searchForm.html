@@ -1,0 +1,18 @@
+<!-- Search form with pre-search and post-search inputs -->
+
+<form name="searchForm" ng-submit="search.submit()">
+  <md-input-container>
+    <label>Search Terms</label>
+    <input ng-model="search.keywords" autofocus required>
+  </md-input-container>
+
+  <yps-pre-search-inputs ng-show="search.showPrepControls"></yps-pre-search-inputs>
+
+  <section layout="row" layout-sm="column" layout-align="space-around center">
+    <md-button class="md-primary" type="button" ng-click="search.togglePrepControls()">{{search.prepControlsButtonMessage}}</md-button>
+    <md-button class="md-primary md-raised" type="submit" ng-disabled="searchForm.$invalid">Use the Power!</md-button>
+    <md-button class="md-primary" type="button" ng-click="search.toggleFunnelControls()">{{search.funnelControlsButtonMessage}}</md-button>
+  </section>
+
+  <yps-post-search-inputs ng-show="search.showFunnelControls"></yps-post-search-inputs>
+</form>
