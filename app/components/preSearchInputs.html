@@ -1,27 +1,28 @@
 <md-subheader>Configure your search before submitting (more options coming soon)</md-subheader>
 <md-content class="globalization" layout="row" layout-align="center" layout-margin layout-wrap>
   <md-autocomplete flex-gt-sm="15"
-    md-items="region in search.filterAutoComplete(search.searchRegion, 'lowerCaseName', search.regions)"
+    md-items="region in preSearch.filterAutoComplete(preSearch.searchRegion, 'lowerCaseName', preSearch.regions)"
     md-item-text="region.name"
-    md-selected-item="search.selectedRegion"
-    md-search-text="search.searchRegion"
+    md-selected-item="preSearch.selectedRegion"
+    md-search-text="preSearch.searchRegion"
     md-search-text-change="angular.noop"
     md-selected-item-change="angular.noop"
     md-min-length="1"
     md-floating-label="Country"
     md-autofocus="false">
-    <span md-highlight-text="search.searchRegion">{{region.name}}</span>
+    <span md-highlight-text="preSearch.searchRegion">{{region.name}}</span>
   </md-autocomplete>
+
   <md-autocomplete flex-gt-sm="15"
-    md-items="language in search.filterAutoComplete(search.searchLanguage, 'lowerCaseName', search.languages)"
+    md-items="language in preSearch.filterAutoComplete(preSearch.searchLanguage, 'lowerCaseName', preSearch.languages)"
     md-item-text="language.name"
-    md-selected-item="search.selectedLanguage"
-    md-search-text="search.searchLanguage"
+    md-selected-item="preSearch.selectedLanguage"
+    md-search-text="preSearch.searchLanguage"
     md-search-text-change="angular.noop"
     md-selected-item-change="angular.noop"
     md-min-length="1"
     md-floating-label="Language"
     md-autofocus="false">
-    <span md-highlight-text="search.searchLanguage">{{language.name}}</span>
+    <span md-highlight-text="preSearch.searchLanguage">{{language.name}}</span>
   </md-autocomplete>
 </md-content>

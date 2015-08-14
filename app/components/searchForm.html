@@ -6,7 +6,7 @@
     <input ng-model="search.keywords" autofocus required>
   </md-input-container>
 
-  <yps-pre-search-inputs ng-show="search.showPrepControls"></yps-pre-search-inputs>
+  <yps-pre-search-inputs ng-model="search.prep" ng-show="search.showPrepControls"></yps-pre-search-inputs>
 
   <section layout="row" layout-sm="column" layout-align="space-around center">
     <md-button class="md-primary" type="button" ng-click="search.togglePrepControls()">{{search.prepControlsButtonMessage}}</md-button>

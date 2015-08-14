@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('SearchCtrl', function(Search, Globalization) {
+.controller('SearchCtrl', function(Search) {
   'use strict';
   var ctrl = this;
 
@@ -8,13 +8,15 @@ angular.module('app')
   ctrl.resultsOrderReverse = false;
   ctrl.resultsOrderProp = 'relevanceRank';
 
-  ctrl.regions = Globalization.regions;
-  ctrl.languages = Globalization.languages;
-
   ctrl.showPrepControls = false;
   ctrl.showFunnelControls = false;
   ctrl.prepControlsButtonMessage = 'Prep the Power';
   ctrl.funnelControlsButtonMessage = 'Funnel the Power';
+
+  ctrl.prep = {
+    selectedRegion: {},
+    selectedLanguage: {}
+  };
 
   ctrl.togglePrepControls = function() {
     ctrl.showPrepControls = !ctrl.showPrepControls;
@@ -39,26 +41,14 @@ angular.module('app')
     return true;
   };
 
-  function createFilterFor(query, key) {
-    var lowercaseQuery = angular.lowercase(query);
-    return function filterFn(item) {
-      return (item[key].indexOf(lowercaseQuery) === 0);
-    };
-  }
-
-  ctrl.filterAutoComplete = function(searchText, key, items) {
-    var results = searchText ? items.filter(createFilterFor(searchText, key)) : items;
-    return results;
-  };
-
   ctrl.submit = function() {
-    ctrl.selectedRegion = ctrl.selectedRegion || { alpha2: 'us' };
-    ctrl.selectedLanguage = ctrl.selectedLanguage || { alpha2: 'en' };
+    var selectedRegion = ctrl.prep.selectedRegion || { alpha2: 'us' };
+    var selectedLanguage = ctrl.prep.selectedLanguage || { alpha2: 'en' };
 
     var searchConfig = {
       keywords: ctrl.keywords,
-      regionCode: ctrl.selectedRegion.alpha2,
-      relevanceLanguage: ctrl.selectedLanguage.alpha2
+      regionCode: selectedRegion.alpha2,
+      relevanceLanguage: selectedLanguage.alpha2
     };
 
     ctrl.results = [];
