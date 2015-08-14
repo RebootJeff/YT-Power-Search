@@ -15,7 +15,7 @@ angular.module('app', [
 .config(function($mdThemingProvider) {
   $mdThemingProvider.theme('default')
     .primaryPalette('red')
-    .accentPalette('teal')
+    .accentPalette('indigo')
     .warnPalette('amber');
 })
 
