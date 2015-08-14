@@ -1,8 +1,8 @@
 [![Circle CI](https://circleci.com/gh/RebootJeff/yt-power-search.svg?style=svg)](https://circleci.com/gh/RebootJeff/yt-power-search)
 
-# YT-Power-Search
+# ![stupid logo](images/yps_logo.png) YouTube Power Search
 
-*Work in progress. [Prototype is deployed](https://youtubepowersearch.firebaseapp.com/), but just starting to become useful. Please hold your breath accordingly.*
+*Work in progress. [Prototype is **DEPLOYED**](https://youtubepowersearch.firebaseapp.com/), but just starting to become useful. Please hold your breath accordingly.*
 
 A more advanced search tool for finding YouTube content. Feel the power! ...once I've actually completed some features.
 
@@ -34,8 +34,9 @@ A more advanced search tool for finding YouTube content. Feel the power! ...once
 
 ### Challenges
 
-- Using Google's API JavaScript Client Library with AngularJS is surprisingly *not* straightforward.
-  - The Google API Client (GAPI) has some sort of async loading going on. Waiting for that to finish before the Angular app starts using it was a bit tricky, but I ended up using a promise-based solution after being unsatisfied by both (1) the most relevant [SO answer I could find](http://stackoverflow.com/questions/19399419/angular-js-and-google-api-client-js-gapi) and (2) [Google's own recommendation](https://cloud.google.com/solutions/angularjs-cloud-endpoints-recipe-for-building-modern-web-applications)
+- **Problem:** Using Google's API JavaScript Client Library with AngularJS is surprisingly *not* straightforward. **Solution:** The Google API Client (GAPI) has some sort of async loading going on. Waiting for that to finish before the Angular app starts using it was a bit tricky, but I ended up using a promise-based solution after being unsatisfied by both (1) the most relevant [SO answer I could find](http://stackoverflow.com/questions/19399419/angular-js-and-google-api-client-js-gapi) and (2) [Google's own recommendation](https://cloud.google.com/solutions/angularjs-cloud-endpoints-recipe-for-building-modern-web-applications)
+
+- **Problem:** Angular-Material isn't the most stable library ever. ¯\&#95;(ツ)&#95;/¯ **Solution:** Remind myself to open some pull requests later.
 
 ### Credits
 - Creator: [RebootJeff](https://twitter.com/RebootJeff)
