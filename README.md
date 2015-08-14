@@ -2,9 +2,7 @@
 
 # YT-Power-Search
 
-*Work in progress*
-
-*[Prototype is deployed](https://youtubepowersearch.firebaseapp.com/), but not useful yet.*
+*Work in progress. [Prototype is deployed](https://youtubepowersearch.firebaseapp.com/), but just starting to become useful. Please hold your breath accordingly.*
 
 A more advanced search tool for finding YouTube content. Feel the power! ...once I've actually completed some features.
 
