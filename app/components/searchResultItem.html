@@ -9,6 +9,7 @@
   <aside class="search-result-cell">
     <a ng-href="{{::item.videoUrl}}">
       <img ng-src="{{::item.thumbnailUrl}}" alt="{{::item.title}}">
+      <br>{{::item.humanizedDuration}}
     </a>
   </aside>
 
@@ -16,10 +17,12 @@
     <a ng-href="{{::item.videoUrl}}">
       <h3>{{::item.title}}</h3>
     </a>
-    <p><a ng-href="{{::item.channelUrl}}">{{::item.channelTitle}}</a></p>
     <p>
-      {{::item.humanizedPublishedAt}}
-      <br><span class="detail-name">Duration:</span> {{::item.humanizedDuration}}
+      by <a ng-href="{{::item.channelUrl}}">{{::item.channelTitle}}</a>
+      on {{::item.humanizedPublishedAt}}
+    </p>
+    <p>
+      Views: {{::item.humanizedViewCount}} • Rating: {{::item.likePercentage}}% • Likes: {{::item.likeCount}} • Dislikes: {{::item.dislikeCount}}
       <br><span ng-class="::'detail-' + item.hd" class="video-detail">HD</span>
       <span ng-class="::'detail-' + item.caption" class="video-detail detail-name">CC</span>
       <span ng-class="::'detail-' + item.threeD" class="video-detail detail-name">3D</span>

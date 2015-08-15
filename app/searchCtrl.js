@@ -8,14 +8,14 @@ angular.module('app')
     .content('Please keep in mind that this app is in pre-pre-beta :)')
     .action('ok')
     .position('bottom left')
-    .hideDelay(0)
+    .hideDelay(10000)
   ).then(function() {
     $mdToast.show({
       templateUrl: 'app/components/warnWipToast.html',
       controller: 'WarnWipToastCtrl',
       controllerAs: 'warnWipToast',
       position: 'bottom left',
-      hideDelay: 0
+      hideDelay: 10000
     });
   });
 

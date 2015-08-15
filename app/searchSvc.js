@@ -1,5 +1,5 @@
 angular.module('app')
-.service('Search', function(Google, Moment, $q) {
+.service('Search', function(Google, Moment, Utils, $q) {
   'use strict';
   var svc = this;
 
@@ -26,17 +26,31 @@ angular.module('app')
     return $q.all(videoDetailRequests);
   }
 
+  function getLikePercentage(statistics) {
+    var total = statistics.likeCount + statistics.dislikeCount;
+    var ratio = statistics.likeCount / total;
+    var percentage = Math.floor(ratio * 100);
+    return percentage;
+  }
+
   function mungeVideoDetailsWithSearchResults(searchResults, videoDetails) {
     var videoDetail;
+    var status;
+    var statistics;
     var munged;
 
     var results = searchResults.map(function(searchResult, index) {
       videoDetail = videoDetails[index].contentDetails;
-      munged = angular.extend(searchResult, videoDetail);
+      status = videoDetails[index].status;
+      statistics = Utils.numberifyObjVals(videoDetails[index].statistics);
+      munged = angular.extend(searchResult, videoDetail, status, statistics);
+
       munged.duration = Moment.duration(videoDetail.duration);
       munged.humanizedDuration = munged.duration.format('h[h] mm[m] ss[s]');
       munged.hd = (videoDetail.definition === 'hd');
       munged.threeD = (videoDetail.definition === '3d');
+      munged.humanizedViewCount = Utils.getCommaSeparatedNumberString(statistics.viewCount);
+      munged.likePercentage = getLikePercentage(statistics);
       return munged;
     });
 
@@ -48,7 +62,6 @@ angular.module('app')
 
     return Google.searchYouTubeVideos(options)
       .then(function(response) {
-
         searchResults = response.result.items.map(deserializeSearchResult);
         return getDetailsForSearchResults(searchResults);
       })

@@ -39,7 +39,7 @@ angular.module('app')
 
   svc.getYouTubeVideo = function(id) {
     var detailParams = {
-      part: 'contentDetails',
+      part: 'contentDetails,status,statistics',
       id: id,
       maxResults: 50
     };
