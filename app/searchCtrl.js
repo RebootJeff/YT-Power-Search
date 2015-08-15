@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('SearchCtrl', function(Search, $mdToast) {
+.controller('SearchCtrl', function(Search, $mdToast, $q, $timeout) {
   'use strict';
   var ctrl = this;
 
@@ -57,6 +57,22 @@ angular.module('app')
     return true;
   };
 
+  function bindSearchResults(results) {
+    ctrl.results = results;
+  }
+
+  function finishLoading(x) {
+    return $q(function(resolve) {
+      // delay makes for less jarring loading gif UX
+      $timeout(function() {
+        ctrl.loading = false;
+        resolve();
+      }, 800);
+    }).then(function() {
+      return x;
+    });
+  }
+
   ctrl.submit = function() {
     var selectedRegion = ctrl.prep.selectedRegion || { alpha2: 'us' };
     var selectedLanguage = ctrl.prep.selectedLanguage || { alpha2: 'en' };
@@ -71,11 +87,7 @@ angular.module('app')
     ctrl.loading = true;
 
     Search.getVideos(searchConfig)
-      .then(function(results) {
-        ctrl.results = results;
-      })
-      .finally(function() {
-        ctrl.loading = false;
-      });
+      .then(finishLoading)
+      .then(bindSearchResults);
   };
 });
