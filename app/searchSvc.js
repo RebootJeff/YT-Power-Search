@@ -29,7 +29,7 @@ angular.module('app')
   function getLikePercentage(statistics) {
     var total = statistics.likeCount + statistics.dislikeCount;
     var ratio = statistics.likeCount / total;
-    var percentage = Math.floor(ratio * 100);
+    var percentage = ratio * 100;
     return percentage;
   }
 
@@ -49,7 +49,6 @@ angular.module('app')
       munged.humanizedDuration = munged.duration.format('h[h] mm[m] ss[s]');
       munged.hd = (videoDetail.definition === 'hd');
       munged.threeD = (videoDetail.definition === '3d');
-      munged.humanizedViewCount = Utils.getCommaSeparatedNumberString(statistics.viewCount);
       munged.likePercentage = getLikePercentage(statistics);
       return munged;
     });

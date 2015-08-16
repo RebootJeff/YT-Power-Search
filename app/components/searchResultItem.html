@@ -22,7 +22,7 @@
       on {{::item.humanizedPublishedAt}}
     </p>
     <p>
-      Views: {{::item.humanizedViewCount}} • Rating: {{::item.likePercentage}}% • Likes: {{::item.likeCount}} • Dislikes: {{::item.dislikeCount}}
+      Views: {{::item.viewCount | number}} • Rating: {{::item.likePercentage | number:2}}% • Likes: {{::item.likeCount | number}} • Dislikes: {{::item.dislikeCount | number}}
       <br><span ng-class="::'detail-' + item.hd" class="video-detail">HD</span>
       <span ng-class="::'detail-' + item.caption" class="video-detail detail-name">CC</span>
       <span ng-class="::'detail-' + item.threeD" class="video-detail detail-name">3D</span>
