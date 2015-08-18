@@ -10,7 +10,7 @@ gulp.task('clean-scripts', function() {
 });
 
 gulp.task('build-scripts', ['clean-scripts'], function() {
-  return gulp.src('./app/**/*.js')
+  return gulp.src(['./app/**/*.js', '!./app/**/*.spec.js'])
     .pipe(concat('main.js'))
     .pipe(gulp.dest('./'));
 });
@@ -26,7 +26,11 @@ gulp.task('test-continuously', function (done) {
   new KarmaServer({
     configFile: __dirname + '/karma.conf.js',
     singleRun: false
-  }, done).start();
+  }, function(exitCode) {
+    done();
+    // necessary to make default task finish upon hitting Ctrl+C
+    process.exit(exitCode);
+  }).start();
 });
 
 gulp.task('watch', function() {
