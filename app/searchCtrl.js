@@ -73,10 +73,12 @@ angular.module('app')
   ctrl.submit = function() {
     var selectedRegion = ctrl.prep.selectedRegion || { alpha2: 'US' };
     var selectedLanguage = ctrl.prep.selectedLanguage || { alpha2: 'en' };
+    var selectedDuration = ctrl.prep.selectedDuration || { value: 'any' };
     var searchConfig = {
       keywords: ctrl.keywords,
       regionCode: selectedRegion.alpha2,
-      relevanceLanguage: selectedLanguage.alpha2
+      relevanceLanguage: selectedLanguage.alpha2,
+      videoDuration: selectedDuration.value
     };
 
     ctrl.results = [];

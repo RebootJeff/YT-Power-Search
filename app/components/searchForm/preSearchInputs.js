@@ -17,6 +17,12 @@ angular.module('app')
 
   preSearch.regions = Globalization.regions;
   preSearch.languages = Globalization.languages;
+  preSearch.durations = [
+    { display: 'any', value: 'any'},
+    { display: 'Long (> 20 min)', value: 'long'},
+    { display: 'Medium (4-20 min)', value: 'medium'},
+    { display: 'Short (< 4 min)', value: 'short'}
+  ];
 
   function createFilterFor(query, key) {
     var lowercaseQuery = angular.lowercase(query);
