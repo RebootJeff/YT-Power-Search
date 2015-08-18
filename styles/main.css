@@ -16,6 +16,10 @@ a {
   font-weight: 300;
 }
 
+.loading-message > h3 {
+  text-align: center;
+}
+
 .search-result-cell {
   margin: 1em 0.5em;
 }
