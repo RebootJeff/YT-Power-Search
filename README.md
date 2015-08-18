@@ -22,13 +22,16 @@ A more advanced search tool for finding YouTube content. Feel the power! ...once
 
 *Work in progress*
 
+![screenshot](./images/yps_screenshot.png)
+
 ## Development
 
 ### Tech
 
-- AngularJS
-  - Angular-Material
+- AngularJS w/ Angular Material
 - Google API JavaScript Client
+- Karma w/ Jasmine
+- Gulp
 - CircleCI
 - Firebase Hosting
 
@@ -36,7 +39,7 @@ A more advanced search tool for finding YouTube content. Feel the power! ...once
 
 - **Problem:** Using Google's API JavaScript Client Library with AngularJS is surprisingly *not* straightforward. **Solution:** The Google API Client (GAPI) has some sort of async loading going on. Waiting for that to finish before the Angular app starts using it was a bit tricky, but I ended up using a promise-based solution after being unsatisfied by both (1) the most relevant [SO answer I could find](http://stackoverflow.com/questions/19399419/angular-js-and-google-api-client-js-gapi) and (2) [Google's own recommendation](https://cloud.google.com/solutions/angularjs-cloud-endpoints-recipe-for-building-modern-web-applications)
 
-- **Problem:** Angular-Material isn't the most stable library ever. ¯&#92;&#95;(ツ)&#95;/¯ **Solution:** Remind myself to open some pull requests later.
+- **Problem:** Angular Material isn't the most stable library ever. ¯&#92;&#95;(ツ)&#95;/¯ **Solution:** Remind myself to open some pull requests later.
 
 ### Credits
 - Creator: [RebootJeff](https://twitter.com/RebootJeff)
