@@ -29,10 +29,7 @@ angular.module('app')
   ctrl.prepControlsButtonMessage = 'Prep the Power';
   ctrl.funnelControlsButtonMessage = 'Funnel the Power';
 
-  ctrl.prep = {
-    selectedRegion: {},
-    selectedLanguage: {}
-  };
+  ctrl.prep = {};
 
   ctrl.togglePrepControls = function() {
     ctrl.showPrepControls = !ctrl.showPrepControls;
@@ -74,9 +71,8 @@ angular.module('app')
   }
 
   ctrl.submit = function() {
-    var selectedRegion = ctrl.prep.selectedRegion || { alpha2: 'us' };
+    var selectedRegion = ctrl.prep.selectedRegion || { alpha2: 'US' };
     var selectedLanguage = ctrl.prep.selectedLanguage || { alpha2: 'en' };
-
     var searchConfig = {
       keywords: ctrl.keywords,
       regionCode: selectedRegion.alpha2,

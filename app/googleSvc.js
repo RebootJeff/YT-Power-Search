@@ -26,11 +26,9 @@ angular.module('app')
       q: options.keywords,
       order: 'relevance',
       type: 'video',
-      regionCode: 'us',
-      relevanceLanguage: 'en',
       maxResults: 50
     };
-    console.log('options:', options);
+
     var searchParams = angular.extend(defaults, options);
 
     return getGapiClient().then(function(gapiClient) {

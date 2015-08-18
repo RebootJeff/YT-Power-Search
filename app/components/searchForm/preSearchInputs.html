@@ -1,9 +1,10 @@
 <md-subheader>Configure your search before submitting (more options coming soon)</md-subheader>
-<md-content class="globalization" layout="row" layout-align="center" layout-margin layout-wrap>
+
+<md-content layout="row" layout-align="center" layout-margin layout-wrap>
   <md-autocomplete flex-gt-sm="15"
     md-items="region in preSearch.filterAutoComplete(preSearch.searchRegion, 'lowerCaseName', preSearch.regions)"
     md-item-text="region.name"
-    md-selected-item="preSearch.selectedRegion"
+    md-selected-item="ngModel.selectedRegion"
     md-search-text="preSearch.searchRegion"
     md-search-text-change="angular.noop"
     md-selected-item-change="angular.noop"
@@ -16,7 +17,7 @@
   <md-autocomplete flex-gt-sm="15"
     md-items="language in preSearch.filterAutoComplete(preSearch.searchLanguage, 'lowerCaseName', preSearch.languages)"
     md-item-text="language.name"
-    md-selected-item="preSearch.selectedLanguage"
+    md-selected-item="ngModel.selectedLanguage"
     md-search-text="preSearch.searchLanguage"
     md-search-text-change="angular.noop"
     md-selected-item-change="angular.noop"

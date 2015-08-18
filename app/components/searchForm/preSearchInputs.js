@@ -15,8 +15,6 @@ angular.module('app')
   'use strict';
   var preSearch = this;
 
-  preSearch.selectedRegion = $scope.ngModel.selectedRegion;
-  preSearch.selectedLanguage = $scope.ngModel.selectedLanguage;
   preSearch.regions = Globalization.regions;
   preSearch.languages = Globalization.languages;
 
