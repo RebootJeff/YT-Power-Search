@@ -1,8 +1,7 @@
 node_modules
 
-.DS_Store
+main.js
 
-.divshot-cache
-divshot-debug.log
+.DS_Store
 
 junk*
