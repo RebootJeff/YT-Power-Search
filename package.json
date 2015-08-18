@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "postinstall": "./node_modules/.bin/gulp build-scripts",
-    "test": "echo 'Add tests!'"
+    "test": "./node_modules/.bin/gulp test-once"
   },
   "repository": {
     "type": "git",
@@ -27,8 +27,14 @@
     "ramda": "^0.17.1"
   },
   "devDependencies": {
+    "angular-mocks": "^1.4.4",
     "del": "^1.2.1",
     "gulp": "^3.9.0",
-    "gulp-concat": "^2.6.0"
+    "gulp-concat": "^2.6.0",
+    "jasmine-core": "^2.3.4",
+    "karma": "^0.13.9",
+    "karma-jasmine": "^0.3.6",
+    "karma-phantomjs-launcher": "^0.2.1",
+    "phantomjs": "^1.9.18"
   }
 }

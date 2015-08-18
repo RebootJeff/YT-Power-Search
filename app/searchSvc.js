@@ -28,7 +28,7 @@ angular.module('app')
 
   function getLikePercentage(statistics) {
     var total = statistics.likeCount + statistics.dislikeCount;
-    var ratio = statistics.likeCount / total;
+    var ratio = (total === 0) ? 0 : (statistics.likeCount / total);
     var percentage = ratio * 100;
     return percentage;
   }
@@ -73,4 +73,8 @@ angular.module('app')
       });
   };
 
+  // exports for testing
+  angular.extend(svc, {
+    _getLikePercentage: getLikePercentage
+  });
 });
