@@ -3,6 +3,7 @@
 var gulp = require('gulp');
 var del = require('del');
 var concat = require('gulp-concat');
+var ngAnnotate = require('gulp-ng-annotate');
 var KarmaServer = require('karma').Server;
 
 gulp.task('clean-scripts', function() {
@@ -12,6 +13,7 @@ gulp.task('clean-scripts', function() {
 gulp.task('build-scripts', ['clean-scripts'], function() {
   return gulp.src(['./app/**/*.js', '!./app/**/*.spec.js'])
     .pipe(concat('main.js'))
+    .pipe(ngAnnotate())
     .pipe(gulp.dest('./'));
 });
 
