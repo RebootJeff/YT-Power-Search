@@ -1,35 +1,35 @@
 <!-- Meant to be used as child of an ng-repeat -->
 
-<md-list-item class="md-3-line">
-
-  <aside class="search-result-cell">
-    <h1>{{$index + 1}}</h1>
-  </aside>
+<li class="search-result" layout-sm="column" layout-gt-sm="row" layout-wrap>
+  <header flex="100">
+    <a ng-href="{{::item.videoUrl}}">
+      <span class="search-result-number">{{$index + 1}}</span>
+      <h3 class="video-title">{{::item.title}}</h3>
+    </a>
+  </header>
 
   <aside class="search-result-cell">
     <a ng-href="{{::item.videoUrl}}">
-      <img ng-src="{{::item.thumbnailUrl}}" alt="{{::item.title}}">
-      <br>{{::item.humanizedDuration}}
+      <img ng-src="{{::item.thumbnailUrl}}" alt="{{::item.title}}" class="video-thumbnail">
     </a>
   </aside>
 
-  <div class="md-list-item-text search-result-cell">
-    <a ng-href="{{::item.videoUrl}}">
-      <h3>{{::item.title}}</h3>
-    </a>
+  <div class="search-result-cell">
     <p>
       by <a ng-href="{{::item.channelUrl}}">{{::item.channelTitle}}</a>
       on {{::item.humanizedPublishedAt}}
     </p>
+    <p>Duration: {{::item.humanizedDuration}}</p>
     <p>
       Views: {{::item.viewCount | number}} • Rating: {{::item.likePercentage | number:2}}% • Likes: {{::item.likeCount | number}} • Dislikes: {{::item.dislikeCount | number}}
-      <br><span ng-class="::'detail-' + item.hd" class="video-detail">HD</span>
+    </p>
+    <p>
+      <span ng-class="::'detail-' + item.hd" class="video-detail">HD</span>
       <span ng-class="::'detail-' + item.caption" class="video-detail detail-name">CC</span>
       <span ng-class="::'detail-' + item.threeD" class="video-detail detail-name">3D</span>
       <span ng-class="::'detail-' + item.licensedContent" class="video-detail detail-name">Licensed Content</span>
     </p>
   </div>
-
-</md-list-item>
+</li>
 
 <md-divider></md-divider>

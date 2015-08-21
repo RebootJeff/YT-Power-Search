@@ -34,20 +34,50 @@ md-autocomplete.pre-search {
   text-align: center;
 }
 
-.search-result-cell {
-  margin: 1em 0.5em;
+li.search-result {
+  list-style: none;
 }
 
-aside.search-result-cell {
-  margin-top: 2em;
+.search-result-number {
+  margin-right: 0.2em;
+  margin-bottom: 0.2em;
+  padding: 0.1em 0.3em;
+  border-radius: 2px;
+  background-color: rgb(244,67,54);
+  color: white;
+  font-size: 0.9em;
 }
 
-.search-result-cell h3 {
+.video-title {
+  display: inline-block;
+  margin-top: 0.5em;
+  margin-bottom: 0.2em;
   color: black;
+  font-weight: normal;
 }
 
-.search-result-cell a {
-  color: rgba(0,0,0,0.54);
+.video-thumbnail {
+  width: 120px;
+  height: 90px;
+  margin-right: 0.5em;
+}
+
+.search-result-cell {
+  margin: 0 0 1em 0;
+}
+
+div.search-result-cell a {
+  color: rgb(244,67,54);
+}
+
+
+div.search-result-cell {
+  font-size: 0.9em;
+}
+
+.search-result-cell p {
+  margin-top: 0;
+  margin-bottom: 0.4em;
 }
 
 .detail-name {
