@@ -18,10 +18,15 @@ angular.module('app')
   preSearch.regions = Globalization.regions;
   preSearch.languages = Globalization.languages;
   preSearch.durations = [
-    { display: 'any', value: 'any'},
+    { display: 'Any (default)', value: 'any'},
     { display: 'Long (> 20 min)', value: 'long'},
     { display: 'Medium (4-20 min)', value: 'medium'},
     { display: 'Short (< 4 min)', value: 'short'}
+  ];
+  preSearch.safeSearches = [
+    { display: 'None', value: 'none'},
+    { display: 'Moderate (default)', value: 'moderate'},
+    { display: 'Strict', value: 'strict'}
   ];
 
   function createFilterFor(query, key) {

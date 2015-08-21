@@ -74,11 +74,13 @@ angular.module('app')
     var selectedRegion = ctrl.prep.selectedRegion || { alpha2: 'US' };
     var selectedLanguage = ctrl.prep.selectedLanguage || { alpha2: 'en' };
     var selectedDuration = ctrl.prep.selectedDuration || { value: 'any' };
+    var selectedSafeSearch = ctrl.prep.selectedSafeSearch || { value: 'moderate' };
     var searchConfig = {
       keywords: ctrl.keywords,
       regionCode: selectedRegion.alpha2,
       relevanceLanguage: selectedLanguage.alpha2,
-      videoDuration: selectedDuration.value
+      videoDuration: selectedDuration.value,
+      safeSearch: selectedSafeSearch.value
     };
 
     ctrl.results = [];

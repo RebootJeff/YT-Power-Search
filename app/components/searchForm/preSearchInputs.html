@@ -2,6 +2,19 @@
 
 <md-content layout="row" layout-align="center" layout-margin layout-wrap>
   <md-autocomplete flex-gt-sm="15"
+    md-items="safeSearch in preSearch.filterAutoComplete(preSearch.searchSafeSearch, 'value', preSearch.safeSearches)"
+    md-item-text="safeSearch.display"
+    md-selected-item="ngModel.selectedSafeSearch"
+    md-search-text="preSearch.searchSafeSearch"
+    md-search-text-change="angular.noop"
+    md-selected-item-change="angular.noop"
+    md-min-length="0"
+    md-floating-label="Safe Search"
+    md-autofocus="false">
+    <span md-highlight-text="preSearch.searchRegion">{{safeSearch.display}}</span>
+  </md-autocomplete>
+
+  <md-autocomplete flex-gt-sm="15"
     md-items="duration in preSearch.filterAutoComplete(preSearch.searchDuration, 'value', preSearch.durations)"
     md-item-text="duration.display"
     md-selected-item="ngModel.selectedDuration"
