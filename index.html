@@ -25,16 +25,16 @@
         class="md-padding">
         <md-content class="loading-message" ng-show="search.loading">
           <h3>Loading... Please wait and enjoy this gif:</h3>
-          <img src="images/superman_batman_trampoline.gif">
+          <img src="images/superman_batman_trampoline.gif" alt="silly loading animation">
         </md-content>
 
         <md-content class="search-results">
-          <md-list>
+          <ul>
             <yps-search-result-item ng-repeat="item in search.results
               | orderBy : search.resultsOrderProp : search.resultsOrderReverse
               | filter : search.resultsFilterPredicate">
             </yps-search-result-item>
-          </md-list>
+          </ul>
         </md-content>
       </section>
 
