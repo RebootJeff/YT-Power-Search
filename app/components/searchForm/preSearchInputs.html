@@ -1,31 +1,24 @@
 <md-subheader>Configure your search before submitting (more options coming soon)</md-subheader>
 
 <md-content layout="row" layout-align="center" layout-margin layout-wrap>
-  <md-autocomplete flex-gt-sm="15"
-    md-items="safeSearch in preSearch.filterAutoComplete(preSearch.searchSafeSearch, 'value', preSearch.safeSearches)"
-    md-item-text="safeSearch.display"
-    md-selected-item="ngModel.selectedSafeSearch"
-    md-search-text="preSearch.searchSafeSearch"
-    md-search-text-change="angular.noop"
-    md-selected-item-change="angular.noop"
-    md-min-length="0"
-    md-floating-label="Safe Search"
-    md-autofocus="false">
-    <span md-highlight-text="preSearch.searchRegion">{{safeSearch.display}}</span>
-  </md-autocomplete>
+  <md-content flex="100" layout="row" layout-align="center center" layout-wrap>
+    <label>Safe Search:</label>
+    <md-radio-group layout="row" layout-align="start center" layout-wrap ng-model="ngModel.selectedSafeSearch">
+      <md-radio-button value="none" class="md-primary">None</md-radio-button>
+      <md-radio-button value="moderate" class="md-primary">Moderate</md-radio-button>
+      <md-radio-button value="strict" class="md-primary">Strict</md-radio-button>
+    </md-radio-group>
+  </md-content>
 
-  <md-autocomplete flex-gt-sm="15"
-    md-items="duration in preSearch.filterAutoComplete(preSearch.searchDuration, 'value', preSearch.durations)"
-    md-item-text="duration.display"
-    md-selected-item="ngModel.selectedDuration"
-    md-search-text="preSearch.searchDuration"
-    md-search-text-change="angular.noop"
-    md-selected-item-change="angular.noop"
-    md-min-length="0"
-    md-floating-label="Duration"
-    md-autofocus="false">
-    <span md-highlight-text="preSearch.searchRegion">{{duration.display}}</span>
-  </md-autocomplete>
+  <md-content flex="100" layout="row" layout-align="center center" layout-wrap>
+    <label>Duration:</label>
+    <md-radio-group layout="row" layout-align="start center" layout-wrap ng-model="ngModel.selectedDuration">
+      <md-radio-button value="any" class="md-primary">Any</md-radio-button>
+      <md-radio-button value="short" class="md-primary">Short (&lt; 4 min)</md-radio-button>
+      <md-radio-button value="medium" class="md-primary">Medium (4-20 min)</md-radio-button>
+      <md-radio-button value="long" class="md-primary">Long (&gt; 20 min)</md-radio-button>
+    </md-radio-group>
+  </md-content>
 
   <md-autocomplete flex-gt-sm="15"
     md-items="region in preSearch.filterAutoComplete(preSearch.searchRegion, 'lowerCaseName', preSearch.regions)"
