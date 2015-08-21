@@ -78,8 +78,12 @@ angular.module('app')
       keywords: ctrl.keywords,
       regionCode: selectedRegion.alpha2,
       relevanceLanguage: selectedLanguage.alpha2,
+      safeSearch: ctrl.prep.selectedSafeSearch,
+      videoDefinition: ctrl.prep.selectedDefinition,
+      videoDimension: ctrl.prep.selectedDimension,
       videoDuration: ctrl.prep.selectedDuration,
-      safeSearch: ctrl.prep.selectedSafeSearch
+      videoLicense: ctrl.prep.selectedLicense,
+      videoType: ctrl.prep.selectedType
     };
 
     ctrl.results = [];

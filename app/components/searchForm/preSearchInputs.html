@@ -1,48 +1,90 @@
 <md-subheader>Configure your search before submitting (more options coming soon)</md-subheader>
 
-<md-content layout="row" layout-align="center" layout-margin layout-wrap>
-  <md-content flex="100" layout="row" layout-align="center center" layout-wrap>
-    <label>Safe Search:</label>
-    <md-radio-group layout="row" layout-align="start center" layout-wrap ng-model="ngModel.selectedSafeSearch">
-      <md-radio-button value="none" class="md-primary">None</md-radio-button>
-      <md-radio-button value="moderate" class="md-primary">Moderate</md-radio-button>
-      <md-radio-button value="strict" class="md-primary">Strict</md-radio-button>
-    </md-radio-group>
+<md-content layout="row" layout-align="space-around" layout-margin layout-wrap
+  class="pre-search">
+  <md-content flex-gt-sm="30" layout="row" layout-align="space-around center" layout-wrap>
+    <label class="pre-search">Resolution:</label>
+    <md-select ng-model="ngModel.selectedDefinition" class="pre-search">
+      <md-option value="any">Any</md-option>
+      <md-option value="standard">Only SD</md-option>
+      <md-option value="high">Only HD</md-option>
+    </md-select>
   </md-content>
 
-  <md-content flex="100" layout="row" layout-align="center center" layout-wrap>
-    <label>Duration:</label>
-    <md-radio-group layout="row" layout-align="start center" layout-wrap ng-model="ngModel.selectedDuration">
-      <md-radio-button value="any" class="md-primary">Any</md-radio-button>
-      <md-radio-button value="short" class="md-primary">Short (&lt; 4 min)</md-radio-button>
-      <md-radio-button value="medium" class="md-primary">Medium (4-20 min)</md-radio-button>
-      <md-radio-button value="long" class="md-primary">Long (&gt; 20 min)</md-radio-button>
-    </md-radio-group>
+  <md-content flex-gt-sm="30" layout="row" layout-align="space-around center" layout-wrap>
+    <label class="pre-search">Safe Search:</label>
+    <md-select ng-model="ngModel.selectedSafeSearch" class="pre-search">
+      <md-option value="none">None</md-option>
+      <md-option value="moderate">Moderate</md-option>
+      <md-option value="strict">Strict</md-option>
+    </md-select>
   </md-content>
 
-  <md-autocomplete flex-gt-sm="15"
-    md-items="region in preSearch.filterAutoComplete(preSearch.searchRegion, 'lowerCaseName', preSearch.regions)"
-    md-item-text="region.name"
-    md-selected-item="ngModel.selectedRegion"
-    md-search-text="preSearch.searchRegion"
-    md-search-text-change="angular.noop"
-    md-selected-item-change="angular.noop"
-    md-min-length="1"
-    md-floating-label="Country"
-    md-autofocus="false">
-    <span md-highlight-text="preSearch.searchRegion">{{region.name}}</span>
-  </md-autocomplete>
+  <md-content flex-gt-sm="30" layout="row" layout-align="space-around center" layout-wrap>
+    <label class="pre-search">Duration:</label>
+    <md-select ng-model="ngModel.selectedDuration" class="pre-search">
+      <md-option value="any">Any</md-option>
+      <md-option value="short">Short (&lt; 4 min)</md-option>
+      <md-option value="medium">Medium (4-20 min)</md-option>
+      <md-option value="long">Long (&gt; 20 min)</md-option>
+    </md-select>
+  </md-content>
 
-  <md-autocomplete flex-gt-sm="15"
-    md-items="language in preSearch.filterAutoComplete(preSearch.searchLanguage, 'lowerCaseName', preSearch.languages)"
-    md-item-text="language.name"
-    md-selected-item="ngModel.selectedLanguage"
-    md-search-text="preSearch.searchLanguage"
-    md-search-text-change="angular.noop"
-    md-selected-item-change="angular.noop"
-    md-min-length="1"
-    md-floating-label="Language"
-    md-autofocus="false">
-    <span md-highlight-text="preSearch.searchLanguage">{{language.name}}</span>
-  </md-autocomplete>
+  <md-content flex-gt-sm="30" layout="row" layout-align="space-around center" layout-wrap>
+    <label class="pre-search">Dimensions:</label>
+    <md-select ng-model="ngModel.selectedDimension" class="pre-search">
+      <md-option value="any">Any</md-option>
+      <md-option value="2d">Only 2D</md-option>
+      <md-option value="3d">Only 3D</md-option>
+    </md-select>
+  </md-content>
+
+  <md-content flex-gt-sm="30" layout="row" layout-align="space-around center" layout-wrap>
+    <label class="pre-search">License:</label>
+    <md-select ng-model="ngModel.selectedLicense" class="pre-search">
+      <md-option value="any">Any</md-option>
+      <md-option value="creativeCommon">Creative Commons</md-option>
+      <md-option value="youtube">Standard YouTube</md-option>
+    </md-select>
+  </md-content>
+
+  <md-content flex-gt-sm="30" layout="row" layout-align="space-around center" layout-wrap>
+    <label class="pre-search">Type:</label>
+    <md-select ng-model="ngModel.selectedType" class="pre-search">
+      <md-option value="any">Any</md-option>
+      <md-option value="episode">Episodes</md-option>
+      <md-option value="movie">Movies</md-option>
+    </md-select>
+  </md-content>
+
+  <!-- Globalization options -->
+  <md-content flex="100" layout="row" layout-align="center center" layout-wrap>
+    <label class="pre-search">Globalization:</label>
+    <md-autocomplete flex-gt-sm="15"
+      md-items="region in preSearch.filterAutoComplete(preSearch.searchRegion, 'lowerCaseName', preSearch.regions)"
+      md-item-text="region.name"
+      md-selected-item="ngModel.selectedRegion"
+      md-search-text="preSearch.searchRegion"
+      md-search-text-change="angular.noop"
+      md-selected-item-change="angular.noop"
+      md-min-length="1"
+      md-floating-label="Country"
+      md-autofocus="false">
+      <span md-highlight-text="preSearch.searchRegion">{{region.name}}</span>
+    </md-autocomplete>
+
+    <md-autocomplete flex-gt-sm="15"
+      md-items="language in preSearch.filterAutoComplete(preSearch.searchLanguage, 'lowerCaseName', preSearch.languages)"
+      md-item-text="language.name"
+      md-selected-item="ngModel.selectedLanguage"
+      md-search-text="preSearch.searchLanguage"
+      md-search-text-change="angular.noop"
+      md-selected-item-change="angular.noop"
+      md-min-length="1"
+      md-floating-label="Language"
+      md-autofocus="false">
+      <span md-highlight-text="preSearch.searchLanguage">{{language.name}}</span>
+    </md-autocomplete>
+  </md-content>
+
 </md-content>

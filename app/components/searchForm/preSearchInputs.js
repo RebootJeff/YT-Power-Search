@@ -15,8 +15,13 @@ angular.module('app')
   'use strict';
   var preSearch = this;
 
-  $scope.ngModel.selectedSafeSearch = 'none';
+  // defaults
+  $scope.ngModel.selectedDefinition = 'any';
+  $scope.ngModel.selectedDimension = 'any';
   $scope.ngModel.selectedDuration = 'any';
+  $scope.ngModel.selectedLicense = 'any';
+  $scope.ngModel.selectedSafeSearch = 'none';
+  $scope.ngModel.selectedType = 'any';
 
   preSearch.regions = Globalization.regions;
   preSearch.languages = Globalization.languages;

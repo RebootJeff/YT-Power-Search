@@ -2,6 +2,10 @@ body[ng-cloak] {
   display: none;
 }
 
+*:focus {
+  outline: none;
+}
+
 a {
   text-decoration: none;
 }
@@ -14,6 +18,16 @@ a {
   text-align: center;
   color: rgb(244,67,54);
   font-weight: 300;
+}
+
+label.pre-search {
+  font-size: 0.9em;
+  /*font-weight: bold;*/
+}
+
+md-select.pre-search,
+md-autocomplete.pre-search {
+  padding: 0.5em;
 }
 
 .loading-message > h3 {
