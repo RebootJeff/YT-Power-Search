@@ -11,7 +11,7 @@ angular.module('app')
     .hideDelay(10000)
   ).then(function() {
     $mdToast.show({
-      templateUrl: 'app/components/warnWipToast.html',
+      templateUrl: 'app/warnWip/warnWipToast.html',
       controller: 'WarnWipToastCtrl',
       controllerAs: 'warnWipToast',
       position: 'bottom left',
