@@ -1,23 +1,9 @@
 angular.module('app')
-.controller('SearchCtrl', function(Search, $mdToast, $q, $timeout) {
+.controller('SearchCtrl', function(Search, WarnWipToast, $q, $timeout) {
   'use strict';
   var ctrl = this;
 
-  $mdToast.show(
-    $mdToast.simple()
-    .content('Please keep in mind that this app is in pre-pre-beta :)')
-    .action('ok')
-    .position('bottom left')
-    .hideDelay(10000)
-  ).then(function() {
-    $mdToast.show({
-      templateUrl: 'app/warnWip/warnWipToast.html',
-      controller: 'WarnWipToastCtrl',
-      controllerAs: 'warnWipToast',
-      position: 'bottom left',
-      hideDelay: 10000
-    });
-  });
+  WarnWipToast.show();
 
   ctrl.loading = false;
 
