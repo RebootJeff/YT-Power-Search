@@ -30,8 +30,21 @@ md-autocomplete.pre-search {
   padding: 0.5em;
 }
 
-.loading-message > h3 {
+.loading-dialog {
+  background-color: rgb(244,67,54);
+  color: white;
+}
+
+.loading-dialog header {
   text-align: center;
+}
+
+.loading-dialog img {
+  width: 100%;
+}
+
+.search-results > ul {
+  padding: 0 0.5em;
 }
 
 li.search-result {

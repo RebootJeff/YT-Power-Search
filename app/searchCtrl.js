@@ -1,11 +1,9 @@
 angular.module('app')
-.controller('SearchCtrl', function(Search, WarnWipToast, $q, $timeout) {
+.controller('SearchCtrl', function(WarnWipToast, Search, LoadingDialog) {
   'use strict';
   var ctrl = this;
 
   WarnWipToast.show();
-
-  ctrl.loading = false;
 
   ctrl.resultsOrderReverse = false;
   ctrl.resultsOrderProp = 'relevanceRank';
@@ -44,18 +42,6 @@ angular.module('app')
     ctrl.results = results;
   }
 
-  function finishLoading(x) {
-    return $q(function(resolve) {
-      // delay makes for less jarring loading gif UX
-      $timeout(function() {
-        ctrl.loading = false;
-        resolve();
-      }, 800);
-    }).then(function() {
-      return x;
-    });
-  }
-
   ctrl.submit = function() {
     var selectedRegion = ctrl.prep.selectedRegion || { alpha2: 'US' };
     var selectedLanguage = ctrl.prep.selectedLanguage || { alpha2: 'en' };
@@ -73,10 +59,11 @@ angular.module('app')
     };
 
     ctrl.results = [];
-    ctrl.loading = true;
+    LoadingDialog.show();
 
     Search.getVideos(searchConfig)
-      .then(finishLoading)
-      .then(bindSearchResults);
+      .then(bindSearchResults)
+      .then(LoadingDialog.hide);
   };
+
 });

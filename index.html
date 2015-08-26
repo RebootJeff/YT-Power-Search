@@ -21,22 +21,15 @@
 
       <yps-search-form flex-sm="100" flex-md="100" flex-gt-md="80" class="md-whiteframe-z1 md-padding"></yps-search-form>
 
-      <section flex-sm="100" flex-gt-md="80" layout="row" layout-align="center start"
-        class="md-padding">
-        <md-content class="loading-message" ng-show="search.loading">
-          <h3>Loading... Please wait and enjoy this gif:</h3>
-          <img src="images/superman_batman_trampoline.gif" alt="silly loading animation">
-        </md-content>
-
-        <md-content class="search-results">
-          <ul>
-            <yps-search-result-item ng-repeat="item in search.results
-              | orderBy : search.resultsOrderProp : search.resultsOrderReverse
-              | filter : search.resultsFilterPredicate">
-            </yps-search-result-item>
-          </ul>
-        </md-content>
-      </section>
+      <md-content flex-sm="100" flex-gt-md="80" layout="row" layout-align="center start"
+        class="search-results md-padding md-margin">
+        <ul>
+          <yps-search-result-item ng-repeat="item in search.results
+            | orderBy : search.resultsOrderProp : search.resultsOrderReverse
+            | filter : search.resultsFilterPredicate">
+          </yps-search-result-item>
+        </ul>
+      </md-content>
 
       <md-content flex="100" layout="row" layout-align="center end" layout-margin>
         Made with&nbsp;
