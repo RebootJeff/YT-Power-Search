@@ -13,7 +13,7 @@ angular.module('app')
 
   function showFollowup() {
     return $mdToast.show({
-      templateUrl: 'app/warnWip/warnWipToast.html',
+      templateUrl: 'app/components/warnWip/warnWipToast.html',
       controller: 'WarnWipToastCtrl',
       controllerAs: 'warnWipToast',
       position: 'bottom left',
