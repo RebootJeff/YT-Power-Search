@@ -57,7 +57,6 @@ angular.module('app')
   }
 
   svc.getVideos = function(options) {
-    console.log('searching');
     var searchResults;
 
     return Google.searchYouTubeVideos(options)

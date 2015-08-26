@@ -11,7 +11,6 @@ angular.module('app')
   };
 
   svc.hide = function(x) {
-    console.log('hiding dialog');
     // delay makes for less jarring loading gif UX
     return $timeout($mdDialog.hide, 800)
       .then(function() {
