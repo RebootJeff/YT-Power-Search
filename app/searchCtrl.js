@@ -42,6 +42,14 @@ angular.module('app')
     ctrl.results = results;
   }
 
+  var searchWithLoadingDialog = function(searchConfig) {
+    LoadingDialog.show();
+
+    return Search.getVideos(searchConfig)
+      .then(bindSearchResults)
+      .then(LoadingDialog.hide);
+  };
+
   ctrl.submit = function() {
     var selectedRegion = ctrl.prep.selectedRegion || { alpha2: 'US' };
     var selectedLanguage = ctrl.prep.selectedLanguage || { alpha2: 'en' };
@@ -59,11 +67,7 @@ angular.module('app')
     };
 
     ctrl.results = [];
-    LoadingDialog.show();
-
-    Search.getVideos(searchConfig)
-      .then(bindSearchResults)
-      .then(LoadingDialog.hide);
+    searchWithLoadingDialog(searchConfig);
   };
 
 });

@@ -3,7 +3,7 @@ angular.module('app')
   var svc = this;
 
   svc.show = function() {
-    $mdDialog.show({
+    return $mdDialog.show({
       templateUrl: 'app/components/loadingDialog/loadingDialog.html',
       escapeToClose: false,
       hasBackdrop: true
@@ -11,6 +11,7 @@ angular.module('app')
   };
 
   svc.hide = function(x) {
+    console.log('hiding dialog');
     // delay makes for less jarring loading gif UX
     return $timeout($mdDialog.hide, 800)
       .then(function() {
