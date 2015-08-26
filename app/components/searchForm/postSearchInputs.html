@@ -1,22 +1,29 @@
 <md-subheader>Configure the results after submitting (more options coming soon)</md-subheader>
-<md-content layout="row" layout-align="start center" layout-wrap>
-  <label flex-gt-sm="10">Sort by:</label>
-  <md-radio-group layout="row" layout-align="start center" layout-wrap ng-model="search.resultsOrderProp">
-    <md-radio-button value="relevanceRank" class="md-primary">Relevance</md-radio-button>
-    <md-radio-button value="duration" class="md-primary">Duration</md-radio-button>
-    <md-radio-button value="viewCount" class="md-primary">Views</md-radio-button>
-    <md-radio-button value="likePercentage" class="md-primary">Rating</md-radio-button>
-    <md-radio-button value="likeCount" class="md-primary">Likes</md-radio-button>
-    <md-radio-button value="dislikeCount" class="md-primary">Dislikes</md-radio-button>
-    <md-radio-button value="publishedAt" class="md-primary">Date</md-radio-button>
-    <md-radio-button value="title" class="md-primary">Title</md-radio-button>
-  </md-radio-group>
-</md-content>
 
-<md-content layout="row" layout-align="start center" layout-wrap>
-  <label flex-gt-sm="10">Order:</label>
-  <md-radio-group layout="row" layout-align="space-around" layout-wrap ng-model="search.resultsOrderReverse">
-    <md-radio-button ng-value="false" class="md-primary">Ascending</md-radio-button>
-    <md-radio-button ng-value="true" class="md-primary">Descending</md-radio-button>
-  </md-radio-group>
+<md-content layout="row" layout-align="center center" layout-wrap>
+
+  <md-content layout="row" layout-align="start center" layout-wrap
+    class="md-margin">
+    <label>Sort by:</label>
+    <md-select ng-model="search.resultsOrderProp" class="post-search">
+      <md-option value="relevanceRank">Relevance Ranking</md-option>
+      <md-option value="duration">Duration</md-option>
+      <md-option value="viewCount">Views</md-option>
+      <md-option value="likePercentage">Rating</md-option>
+      <md-option value="likeCount">Likes</md-option>
+      <md-option value="dislikeCount">Dislikes</md-option>
+      <md-option value="publishedAt">Date</md-option>
+      <md-option value="title">Title</md-option>
+    </md-select>
+  </md-content>
+
+  <md-content layout="row" layout-align="start center" layout-wrap
+    class="md-margin">
+    <label>Order:</label>
+    <md-select ng-model="search.resultsOrderReverse" class="post-search">
+      <md-option ng-value="false">Ascending</md-option>
+      <md-option ng-value="true">Descending</md-option>
+    </md-select>
+  </md-content>
+
 </md-content>

@@ -25,7 +25,7 @@ label.pre-search {
   /*font-weight: bold;*/
 }
 
-md-select.pre-search,
+md-select,
 md-autocomplete.pre-search {
   padding: 0.5em;
 }
