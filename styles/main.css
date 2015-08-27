@@ -27,7 +27,13 @@ label.pre-search {
 
 md-select,
 md-autocomplete.pre-search {
-  padding: 0.5em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+md-select {
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .loading-dialog {
