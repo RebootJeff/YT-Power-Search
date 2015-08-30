@@ -62,6 +62,7 @@ angular.module('app')
       videoDefinition: ctrl.prep.selectedDefinition,
       videoDimension: ctrl.prep.selectedDimension,
       videoDuration: ctrl.prep.selectedDuration,
+      videoEmbeddable: ctrl.prep.selectedEmbeddable,
       videoLicense: ctrl.prep.selectedLicense,
       videoType: ctrl.prep.selectedType
     };

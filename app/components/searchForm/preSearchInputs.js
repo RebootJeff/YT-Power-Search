@@ -22,6 +22,7 @@ angular.module('app')
   $scope.ngModel.selectedLicense = 'any';
   $scope.ngModel.selectedSafeSearch = 'none';
   $scope.ngModel.selectedType = 'any';
+  $scope.ngModel.selectedEmbeddable = 'any';
 
   preSearch.regions = Globalization.regions;
   preSearch.languages = Globalization.languages;

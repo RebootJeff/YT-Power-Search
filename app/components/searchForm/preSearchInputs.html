@@ -57,6 +57,14 @@
     </md-select>
   </md-content>
 
+  <md-content flex-gt-sm="30" layout="row" layout-align="center center" layout-wrap>
+    <label class="pre-search">Embedding:</label>
+    <md-select ng-model="ngModel.selectedEmbeddable" class="pre-search">
+      <md-option value="any">Any</md-option>
+      <md-option value="true">Only Embeddable</md-option>
+    </md-select>
+  </md-content>
+
   <!-- Globalization options -->
   <md-content flex="100" layout="row" layout-align="center center" layout-wrap>
     <label class="pre-search">Globalization:</label>
