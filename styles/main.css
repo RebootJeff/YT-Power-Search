@@ -20,7 +20,8 @@ a {
   font-weight: 300;
 }
 
-label.pre-search {
+label.pre-search,
+label.post-search {
   font-size: 0.9em;
   /*font-weight: bold;*/
 }
@@ -29,6 +30,7 @@ md-select,
 md-autocomplete.pre-search {
   padding-left: 0.5em;
   padding-right: 0.5em;
+  font-size: 0.9em;
 }
 
 md-select {
